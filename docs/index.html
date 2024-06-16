@@ -90,7 +90,8 @@
     <p>
         <a href="https://twitter.com/ysxninja" target="_blank">
             <img src="https://img.shields.io/twitter/url/https/twitter.com/ysxninja.svg?style=social&label=Follow%20%40ysxninja" alt="Twitter Follow Badge">
-        <a href="https://github.com/ysxninja/g-dorks/" target="_blank">GitHub Repo</a>
+        <a href="https://github.com/ysxninja/g-dorks/" target="_blank"> <img src="https://img.shields.io/github/forks/:ysxninja/:g-dorks" alt="Github repo">
+        </a></a>
         </a><br><br>
     </p>
     <label for="domainInput">Enter a domain:</label>
@@ -124,7 +125,7 @@
     let originalDorks = [];
     
     async function fetchDorks() {
-        const url = "https://raw.githubusercontent.com/ysxninja/g-dorks/main/xREADME.md";
+        const url = "https://raw.githubusercontent.com/ysxninja/g-dorks/main/README.md";
         const response = await fetch(url);
         const text = await response.text();
 
