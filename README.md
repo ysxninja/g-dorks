@@ -249,7 +249,7 @@ org:example.com
 ### Credentials Search <!--gitdorks-->
 
 ```
-org:example.com example.atlasian.net
+org:example.com example.atlassian.net
 ```
 
 ---
