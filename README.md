@@ -243,13 +243,13 @@ site:*/joomla/login
 ### Organization Search <!--gitdorks-->
 
 ```
-org:example.com path:*.txt
+org:example path:*.txt
 ```
 
 ### Credentials Search <!--gitdorks-->
 
 ```
-org:example.com "example.atlassian.net"
+org:example "example.atlassian.net"
 ```
 
 ---
