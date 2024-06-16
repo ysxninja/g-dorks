@@ -249,7 +249,7 @@ org:example path:*.txt
 ### Credentials Search <!--gitdorks-->
 
 ```
-org:example "example.atlassian.net"
+example.atlassian.net
 ```
 
 ---
