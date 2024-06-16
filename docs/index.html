@@ -286,7 +286,6 @@ body {
                     if (/example.\w+.\w+/i.test(originalDork)) {
                         const joinedDomains = domains.map(d => `${d}`).join(" | ");
                         originalDork = originalDork.replace(/example/gi, joinedDomains);
-                        console.log(originalDork);
                     }
 
                     const updatedLink = `https://www.${selectedDork}.com/search?q=${encodeURIComponent(originalDork)}`;
