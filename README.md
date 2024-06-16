@@ -243,7 +243,7 @@ site:*/joomla/login
 ### Organization Search <!--gitdorks-->
 
 ```
-site:example.com path:*.txt
+org:example.com path:*.txt
 ```
 
 ### Credentials Search <!--gitdorks-->
