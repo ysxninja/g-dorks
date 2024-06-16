@@ -1,19 +1,20 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>G-Dorks</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #212121;
-            color: #f0f0f0;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>G-Dorks</title>
+        <style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #212121;
+    color: #f0f0f0;
+    padding: 20px;
+    box-sizing: border-box;
+}
         h1 {
             font-size: 2.5em;
             margin-bottom: 20px;
@@ -77,166 +78,220 @@
         }
         .hidden { display: none; }
         #tooltip {
-        position: absolute;
-        background-color: black;
-        color: white;
-        padding: 5px;
-        border-radius: 5px;
-    }
-    </style>
-</head>
-<body>
-    <h2>Useful dorks for google+github</h2>
-    <p>
-        <a href="https://twitter.com/ysxninja" target="_blank">
-            <img src="https://img.shields.io/twitter/url/https/twitter.com/ysxninja.svg?style=social&label=Follow%20%40ysxninja" alt="Twitter Follow Badge">
-        <a href="https://github.com/ysxninja/g-dorks/" target="_blank"> <img src="https://img.shields.io/github/stars/ysxninja/g-dorks" alt="Github repo">
-        </a></a>
-        </a><br><br><br>
-    </p>
-    <label for="domainInput">Enter a domain:</label>
-    <input type="text" id="domainInput" placeholder="example.com" oninput="updateDomain()">
-    <div id="tooltip" class="hidden">For multiple domains, separate by comma. e.g., example1.com, example2.com</div>
+            position: absolute;
+            background-color: black;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .dorkstoggle{
+            display: flex;
+            align-items: center;
+        }
+        #dropdownMenu {
+            margin-left: auto;
+            margin-top: 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="dorkstoggle">
+            <h2>Useful Dorks</h2>
+            <select id="dropdownMenu" onchange="filterDorks()" style="display: block;">
+                <option value="google">Google</option>
+                <option value="github">Github</option>
+                <option value="other">General</option>
+            </select>
+        </div>
+        <br>
+        <p>
+            <a href="https://twitter.com/ysxninja" target="_blank">
+                <img src="https://img.shields.io/twitter/url/https/twitter.com/ysxninja.svg?style=social&label=Follow%20%40ysxninja" alt="Twitter Follow Badge">
+                <a href="https://github.com/ysxninja/g-dorks/" target="_blank"> <img src="https://img.shields.io/github/stars/ysxninja/g-dorks" alt="Github repo">
+                </a></a>
+                </a><br><br>
+        </p>
 
-    <ul id="dorkList"></ul>
-    <section>
-        <h2>Additional Resources (credits to @TakSec) <a href="https://twitter.com/TakSec" target="_blank"><img src="https://img.shields.io/twitter/url/https/twitter.com/TakSec.svg?style=social&label=Follow%20%40TakSec" alt="Twitter Follow Badge"></a></h2>
-        <ul class="link-list">
-            <li><a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank">Google Dorks For Bug Bounty</a></li>
-            <li><a href="https://thegrayarea.tech/5-google-dorks-every-hacker-needs-to-know-fed21022a906" target="_blank">5 Google Dorks Every Hacker Needs to Know</a></li>
-            <li><a href="https://infosecwriteups.com/uncover-hidden-gems-in-the-cloud-with-google-dorks-8621e56a329d" target="_blank">Uncover Hidden Gems in the Cloud with Google Dorks</a></li>
-            <li><a href="https://infosecwriteups.com/10-google-dorks-for-sensitive-data-9454b09edc12" target="_blank">10 Google Dorks for Sensitive Data</a></li>
-        </ul>
-    </section>
-    <script>
-    const domainInput = document.getElementById('domainInput');
-    const tooltip = document.getElementById('tooltip');
+        <label for="domainInput">Enter a domain:</label>
+        <input type="text" style="border-radius:4px;" id="domainInput" placeholder="example.com" oninput="updateDomain()">
+        <div id="tooltip" class="hidden">For multiple domains, separate by comma. e.g., example1.com, example2.com</div>
 
-    domainInput.addEventListener('mouseover', function() {
-        tooltip.style.display = 'block';
-        tooltip.style.left = domainInput.offsetLeft + 'px';
-        tooltip.style.top = (domainInput.offsetTop + domainInput.offsetHeight + 5) + 'px';
-    });
+        <ul id="dorkList"></ul>
+        <section>
+            <h2>Additional Resources (credits to @TakSec) <a href="https://twitter.com/TakSec" target="_blank"><img src="https://img.shields.io/twitter/url/https/twitter.com/TakSec.svg?style=social&label=Follow%20%40TakSec" alt="Twitter Follow Badge"></a></h2>
+            <ul class="link-list">
+                <li><a href="https://github.com/TakSec/google-dorks-bug-bounty/" target="_blank">Google Dorks For Bug Bounty</a></li>
+                <li><a href="https://thegrayarea.tech/5-google-dorks-every-hacker-needs-to-know-fed21022a906" target="_blank">5 Google Dorks Every Hacker Needs to Know</a></li>
+                <li><a href="https://infosecwriteups.com/uncover-hidden-gems-in-the-cloud-with-google-dorks-8621e56a329d" target="_blank">Uncover Hidden Gems in the Cloud with Google Dorks</a></li>
+                <li><a href="https://infosecwriteups.com/10-google-dorks-for-sensitive-data-9454b09edc12" target="_blank">10 Google Dorks for Sensitive Data</a></li>
+            </ul>
+        </section>
+        <script>
 
-    domainInput.addEventListener('mouseout', function() {
-        tooltip.style.display = 'none';
-    });
-    
-    let originalDorks = [];
-    
-    async function fetchDorks() {
-        const url = "https://raw.githubusercontent.com/ysxninja/g-dorks/main/README.md";
-        const response = await fetch(url);
-        const text = await response.text();
+            const domainInput = document.getElementById('domainInput');
+            const tooltip = document.getElementById('tooltip');
 
-        const dorkList = document.getElementById("dorkList");
-        const regex = /(?:^### (.+)|```([^`]+)```)/gm;
-        let match;
-        let title = '';
-        let firstDork = true;
+            selectedDork = document.getElementById("dropdownMenu").value;
 
-        while ((match = regex.exec(text)) !== null) {
-    if (match[1]) {
-        // Title match
-        title = match[1];
-    } else if (match[2]) {
-        // Dork match
-        const dork = match[2].trim();
-        originalDorks.push(dork);
-        const listItem = createDorkListItem(dork, title);
-        dorkList.appendChild(listItem);
-    }
-}
-filterDorks();
+            domainInput.addEventListener('mouseover', function() {
+                tooltip.style.display = 'block';
+                tooltip.style.left = domainInput.offsetLeft + 'px';
+                tooltip.style.top = (domainInput.offsetTop + domainInput.offsetHeight + 5) + 'px';
+            });
 
-``
+            domainInput.addEventListener('mouseout', function() {
+                tooltip.style.display = 'none';
+            });
 
-    }
-        
-    let prevTitle = '';
+            let originalDorks = [];
 
-        function createDorkListItem(dork, description) {
-            const googleLink = `https://www.google.com/search?q=${encodeURIComponent(dork)}`;
+            async function fetchDorks() {
+                const url = "https://raw.githubusercontent.com/ysxninja/g-dorks/main/README.md";
+                const response = await fetch(url);
+                const text = await response.text();
 
-            const listItem = document.createElement("li");
+                const dorkList = document.getElementById("dorkList");
+                const regex = /(?:^### (.+)|```([^`]+)```)/gm;
+                let match;
+                let title = '';
+                let firstDork = true;
 
-            if (description && description !== prevTitle) {
-                const desc = document.createElement("p");
-                desc.textContent = description;
-                desc.classList.add("description");
-                listItem.appendChild(desc);
-                prevTitle = description;
+                while ((match = regex.exec(text)) !== null) {
+                    if (match[1]) {
+                        // Title match
+                        title = match[1]
+                    } else if (match[2]) {
+                        // Dork match
+                        const dork = match[2].trim();
+                        originalDorks.push(dork);
+                        let selectedValueDork = "google";
+                        if(title.toLowerCase().includes("gitdorks")){
+                            selectedValueDork = "github";
+                        };
+                        const listItem = createDorkListItem(dork, title, selectedValueDork);
+                        dorkList.appendChild(listItem)
+
+                    }
+                }
+                filterDorks();
+
             }
 
-            const link = document.createElement("a");
-            link.href = googleLink;
-            link.textContent = dork;
-            link.classList.add("dorkLink");
-            link.target = "_blank";
+            function filterDorks() {
+                selectedDork = document.getElementById("dropdownMenu").value;
+                const dorkItems = document.querySelectorAll("#dorkList li");
 
-            listItem.appendChild(link);
+                if(selectedDork === "google" ){dorkItems.forEach(item => {
+                    item.style.display = "block";
+                    if (item.textContent.toLowerCase().includes("omit")) {
+                        item.style.display = "none";
+                    }
+                    if (item.textContent.toLowerCase().includes("git")) {
+                        item.style.display = "none";
+                    }
+                });}
 
-            return listItem;
-        }
+                if(selectedDork === "github"){
+                    dorkItems.forEach(item => {
+                        item.style.display = "none";
+                        if (item.textContent.toLowerCase().includes("gitdorks")) {
+                            item.style.display = "block";
+                        }
+                    });
+                }
+                if(selectedDork === "other"){
+                    dorkItems.forEach(item => {
+                        item.style.display = "none";
+                        if (item.textContent.toLowerCase().includes("omit")) {
+                            item.style.display = "block";
+                        }
+                    });
+                }
+            }
 
-        function updateDomain() {
-            const domainInput = document.getElementById("domainInput");
-            const domains = domainInput.value.split(",").map(domain => domain.trim());
-        
-            if (domains.length === 0) return;
-        
-            const dorkLinks = document.querySelectorAll(".dorkLink");
-            dorkLinks.forEach((link, index) => {
-                let originalDork = originalDorks[index];
-                
-                // Check if the dork is related to Drupal and skip modification
-                if (originalDork.includes("Drupal")) {
-                    return; // Skip any modification if it's a Drupal related dork
+            let prevTitle = '';
+
+            function createDorkListItem(dork, description, selectedValueDork) {
+                const selectedLink = `https://www.${selectedValueDork}.com/search?q=${encodeURIComponent(dork)}`;
+
+                const listItem = document.createElement("li");
+
+                if (description && description !== prevTitle) {
+                    const desc = document.createElement("p");
+                    desc.textContent = description;
+                    desc.classList.add("description");
+                    listItem.appendChild(desc);
+                    prevTitle = description;
                 }
 
-                // For site:example.com
-                if (/site:"?example\[?\.\]?com"?/i.test(originalDork)) {
-                    const joinedDomains = domains.map(d => `site:${d}`).join(" | ");
-                    originalDork = originalDork.replace(/site:"?example\[?\.\]?com"?/gi, joinedDomains);
-                }
-                
-                // For "example.com"
-                else if (/["']example\[?\.\]?com["']/i.test(originalDork)) {
-                    const joinedDomains = domains.map(d => `"${d}"`).join(" | ");
-                    originalDork = originalDork.replace(/["']example\[?\.\]?com["']/gi, joinedDomains);
-                }
-                
-                // For intext:"example.com" and similar patterns
-                const intextPattern = /intext:"example\.com"/gi;
-                if (intextPattern.test(originalDork)) {
-                    const joinedDomains = domains.map(d => `intext:"${d}"`).join(" | ");
-                    updatedDork = originalDork.replace(intextPattern, joinedDomains);
-                }
-                // Update intext:"" for all domains after the first
-                if (originalDork.includes('intext:"')) {
-                    const joinedDomains = domains.map((d, idx) => idx === 0 ? `intext:"${d}"` : `intext:"${d}"`).join(" | ");
-                    originalDork = originalDork.replace(/intext:"([^"]+)"/gi, joinedDomains);
-                    originalDork = originalDork.replace(/ \| "([^"]+)"/gi, " | ");
-                }
+                const link = document.createElement("a");
+                link.href = selectedLink;
+                link.textContent = dork;
+                link.classList.add("dorkLink");
+                link.target = "_blank";
 
-                const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(originalDork)}`;
-            
-                link.textContent = originalDork;
-                link.href = updatedLink;
-            });
-        }
-        
-        fetchDorks();
-        
-        function filterDorks() {
-    const dorkItems = document.querySelectorAll("#dorkList li");
-    dorkItems.forEach(item => {
-        if (item.textContent.toLowerCase().includes("omit")) {
-            item.style.display = "none";
-        }
-    });
+                listItem.appendChild(link);
+
+                return listItem;
+            }
+
+            function updateDomain() {
+                const domainInput = document.getElementById("domainInput");
+                const domains = domainInput.value.split(",").map(domain => domain.trim());
+
+                if (domains.length === 0) return;
+
+                const dorkLinks = document.querySelectorAll(".dorkLink");
+                dorkLinks.forEach((link, index) => {
+                    let originalDork = originalDorks[index];
+
+                    // Check if the dork is related to Drupal and skip modification
+                    if (originalDork.includes("Drupal")) {
+                        return; // Skip any modification if it's a Drupal related dork
+                    }
+
+                    // For site:example.com
+                    if (/site:"?example\[?\.\]?com"?/i.test(originalDork)) {
+                        const joinedDomains = domains.map(d => `site:${d}`).join(" | ");
+                        originalDork = originalDork.replace(/site:"?example\[?\.\]?com"?/gi, joinedDomains);
+                    }
+
+                    // For "example.com"
+                    else if (/["']example\[?\.\]?com["']/i.test(originalDork)) {
+                        const joinedDomains = domains.map(d => `"${d}"`).join(" | ");
+                        originalDork = originalDork.replace(/["']example\[?\.\]?com["']/gi, joinedDomains);
+                    }
+
+                    // For intext:"example.com" and similar patterns
+                    const intextPattern = /intext:"example\.com"/gi;
+                    if (intextPattern.test(originalDork)) {
+                        const joinedDomains = domains.map(d => `intext:"${d}"`).join(" | ");
+                        updatedDork = originalDork.replace(intextPattern, joinedDomains);
+                    }
+                    // Update intext:"" for all domains after the first
+                    if (originalDork.includes('intext:"')) {
+                        const joinedDomains = domains.map((d, idx) => idx === 0 ? `intext:"${d}"` : `intext:"${d}"`).join(" | ");
+                        originalDork = originalDork.replace(/intext:"([^"]+)"/gi, joinedDomains);
+                        originalDork = originalDork.replace(/ \| "([^"]+)"/gi, " | ");
+                    }
+
+                    // For org:example
+                    if (/org:"?example\s"?/i.test(originalDork)) {
+                        const joinedDomains = domains.map(d => `org:${d}`).join(" | ");
+                        originalDork = originalDork.replace(/org(?::|"?:|"?\[|\[|\.|\.\])example(?:\.|\.|\.com)?/gi, joinedDomains);
+                    }
+
+                    const updatedLink = `https://www.${selectedDork}.com/search?q=${encodeURIComponent(originalDork)}`;
+
+                    link.textContent = originalDork;
+                    link.href = updatedLink;
+                });
 }
 
-    </script>
-</body>
+            fetchDorks();
+
+        </script>
+    </body>
 </html>
