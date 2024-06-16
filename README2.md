@@ -11,6 +11,12 @@
 org:example.com
 ```
 
+### Credentials Search
+
+```
+org:example.com example.atlasian.net
+```
+
 ---
 
 
