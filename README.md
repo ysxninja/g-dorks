@@ -1,13 +1,7 @@
-# Google Dorks for Bug Bounty
+# Useful Dorks
+[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/ysxninja.svg?style=social&label=Follow%20%40ysxninja)](https://twitter.com/ysxninja) 
+[![Live Tool](https://img.shields.io/github/stars/ysxninja/g-dorks)](https://ysxninja.github.io/g-dorks/) 
 
-A list of Google Dorks for Bug Bounty, Web Application Security, and Pentesting
-
-[Live Tool](https://taksec.github.io/google-dorks-bug-bounty/)
-
-![tool screenshot](https://github.com/TakSec/google-dorks-bug-bounty/assets/27094033/3ff009d7-f402-4eb2-8321-ce22eeeb5605)
-
-[![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/TakSec.svg?style=social&label=Follow%20%40TakSec)](https://twitter.com/TakSec)
-</p>
 
 ---
 
@@ -246,8 +240,21 @@ intext:"Powered by" & intext:Drupal & inurl:user
 site:*/joomla/login
 ```
 
+### Organization Search
+
+```
+org:example.com
+```
+
+### Credentials Search
+
+```
+org:example.com example.atlasian.net
+```
 
 ---
+
+
 
 Medium articles for more dorks:
 
@@ -264,3 +271,4 @@ https://github.com/lutfumertceylan/top25-parameter
 Proviesec dorks:
 
 https://github.com/Proviesec/google-dorks
+https://docs.github.com/en/search-github/github-code-search/understanding-github-code-search-syntax
