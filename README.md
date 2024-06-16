@@ -240,13 +240,13 @@ intext:"Powered by" & intext:Drupal & inurl:user
 site:*/joomla/login
 ```
 
-### Organization Search
+### Organization Search <!--gitdorks-->
 
 ```
 org:example.com
 ```
 
-### Credentials Search
+### Credentials Search <!--gitdorks-->
 
 ```
 org:example.com example.atlasian.net
