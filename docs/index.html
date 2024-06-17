@@ -287,8 +287,12 @@ body {
                         const joinedDomains = domains.map(d => `${d}`).join(" | ");
                         originalDork = originalDork.replace(/example/gi, joinedDomains);
                     }
-
-                    const updatedLink = `https://www.${selectedDork}.com/search?q=${encodeURIComponent(originalDork)}`;
+                    
+                    if (selectedDork === "other"){
+                        const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(originalDork)}`;
+                    } else {
+                        const updatedLink = `https://www.${selectedDork}.com/search?q=${encodeURIComponent(originalDork)}`;
+                    }
 
                     link.textContent = originalDork;
                     link.href = updatedLink;
