@@ -287,15 +287,17 @@ body {
                         const joinedDomains = domains.map(d => `${d}`).join(" | ");
                         originalDork = originalDork.replace(/example/gi, joinedDomains);
                     }
-                    
+
+                    // TODO: Fix auto link update on toggle
                     if (selectedDork === "other"){
-                        const updatedLink = `https://www.google.com/search?q=${encodeURIComponent(originalDork)}`;
-                    } else {
-                        const updatedLink = `https://www.${selectedDork}.com/search?q=${encodeURIComponent(originalDork)}`;
+                        let updatedLink = `https://www.google.com/search?q=${encodeURIComponent(originalDork)}`;
+                        link.href = updatedLink;
+                    } else{
+                        let updatedLink = `https://www.${selectedDork}.com/search?q=${encodeURIComponent(originalDork)}`;
+                        link.href = updatedLink;
                     }
 
                     link.textContent = originalDork;
-                    link.href = updatedLink;
                 });
 }
 
